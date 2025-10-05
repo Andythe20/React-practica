@@ -1,10 +1,14 @@
-import PropTypes from "prop-types";
 
 function List({ data }) {
+  //capturar el evento de click
+  function handleClick(e){
+    console.log(e)
+  }
+  
   return (
     <ul className="list-group">
       {data.map((elemento) => (
-        <li className="list-group-item" key={elemento}>
+        <li onClick={handleClick} className="list-group-item" key={elemento}>
           {elemento}
         </li>
       ))}
@@ -12,8 +16,5 @@ function List({ data }) {
   );
 }
 
-List.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.string),
-};
 
 export default List;
