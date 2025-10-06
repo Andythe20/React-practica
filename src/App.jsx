@@ -7,9 +7,6 @@ function App() {
   const handleSelect = (elemento) => {
     console.log("Elemento seleccionado:", elemento);
   };
-  const handleSelect2 = (elemento) => {
-    console.log("Imprimiendo:", elemento);
-  };
 
   /*
   //Renderizado condicional

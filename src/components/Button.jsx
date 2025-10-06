@@ -1,9 +1,21 @@
-function Button(props) {
-  const { text } = props;
+import { useState } from "react";
+
+function Button({ text, onClick }) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    onClick?.onClick();
+  };
 
   return (
-    <button type="button" className="btn btn-primary">
-      {text}
+    <button
+      type="button"
+      onClick={handleClick}
+      className={`btn ${!isLoading ? `btn-primary` : "btn-secondary disabled"}`}
+      disabled={isLoading}
+    >
+      {!isLoading ? text : "Cargando ..."}
     </button>
   );
 }
