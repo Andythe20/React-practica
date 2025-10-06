@@ -1,23 +1,14 @@
 import { useState } from "react";
 
-function Button({ text, onClick }) {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleClick = () => {
-    setIsLoading(true);
-    onClick?.onClick();
-  };
-
+export function Button({ children, isLoading, onClick }) {
   return (
     <button
       type="button"
-      onClick={handleClick}
-      className={`btn ${!isLoading ? `btn-primary` : "btn-secondary disabled"}`}
+      onClick={onClick}
+      className={`btn btn-${isLoading ? "secondary" : "primary"}`}
       disabled={isLoading}
     >
-      {!isLoading ? text : "Cargando ..."}
+      {!isLoading ? children : "Cargando ..."}
     </button>
   );
 }
-
-export default Button;
