@@ -40,8 +40,12 @@ function App() {
   return (
     <>
       <Card>
-        <Button onClick={addMinion}>Agregar</Button>
-        <Button onClick={removeMinion}>Eliminar</Button>
+        <Button isLoading={true} onClick={addMinion}>
+          Agregar
+        </Button>
+        <Button isLoading={false} onClick={removeMinion}>
+          Eliminar
+        </Button>
         <List data={data} />
       </Card>
     </>

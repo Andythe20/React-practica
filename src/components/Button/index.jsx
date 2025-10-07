@@ -1,7 +1,12 @@
 import { useState } from "react";
 import styles from "./Button.module.css";
+import styled from "styled-components";
 
-console.log(styles);
+const Btn = styled.button`
+  background-color: ${(props) => (props.isLoading ? "gray" : "red")};
+  padding: 25px 30px;
+`;
+
 export function Button({ children, isLoading, onClick }) {
   const className = [
     `btn btn-${isLoading ? "secondary" : "primary"}`,
@@ -9,14 +14,14 @@ export function Button({ children, isLoading, onClick }) {
   ].join(" ");
 
   return (
-    <button
+    <Btn
       type="button"
       onClick={onClick}
       //className={[styles.button, styles.padded].join(" ")}
-      className={className}
       disabled={isLoading}
+      isLoading={isLoading}
     >
       {!isLoading ? children : "Cargando ..."}
-    </button>
+    </Btn>
   );
 }
